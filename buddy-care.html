@@ -1,0 +1,3780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Buddy Services</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Buddy Services">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&amp;family=Caveat:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=Caprasimo&amp;display=swap">
+    </noscript>
+    <link rel="preload" href="assets/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+
+    <!-- CSS
+	============================================ -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="preload" href="assets/css/plugins/fontawesome-all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/plugins/fontawesome-all.min.css">
+    </noscript>
+    <link rel="stylesheet" href="assets/css/plugins/swiper.css">
+    <link rel="stylesheet" href="assets/css/plugins/fancybox.css">
+    <link rel="stylesheet" href="assets/css/plugins/mavo.css">
+    <link rel="stylesheet" href="assets/css/plugins/odometer.css">
+    <link rel="stylesheet" href="assets/css/plugins/animation.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+
+
+
+<body class="rbt-header-sticky">
+    <header class="rbt-header rbt-header-2">
+
+        <div
+            class="rbt-header-wrapper rbt-header-sticky-activation rbt-header-wrapper-one header-space-between rbt-bg-color-white header-not-transparent header-sticky plr--0 position-relative z-5">
+
+
+            <div class="rbt-separator-mid">
+                <hr class="rbt-separator rbt-separator-gray100 m-0">
+            </div>
+
+            <div class="rbt-wrapper-middle rbt-header-middle-one">
+                <div class="container">
+                    <div class="mainbar-row @@navigationEnd align-items-center">
+                        <div class="header-left">
+                            <!-- Start Mobile-Menu-Bar -->
+                            <div class="mobile-menu-bar d-block d-xl-none">
+                                <div class="hamberger">
+                                    <button class="hamberger-button rbt-round-btn">
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Start Mobile-Menu-Bar -->
+
+                            <div class="rbt-header-content">
+                                <div class="header-info">
+                                    <div class="logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/logo/logo.png" alt="BUDDY Services">
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="rbt-header-content d-none d-xl-block">
+                            <div class="header-info">
+                                <div class="rbt-search-with-category uni-header-swc-one">
+                                    <form id="serviceSearchForm">
+
+                                        <div class="rbt-inner-search-field border-0">
+
+                                            <div
+                                                class="rbt-search-input-section has-left-catagory-section rbt-inner-search-label-animate-activation">
+
+                                                <div class="filter-select rbt-modern-select search-by-category">
+                                                    <select class="rbt-select-activation" data-live-search="true"
+                                                        data-live-search-placeholder="Search Services">
+
+                                                        <option>All Services</option>
+                                                        <option>Buddy Society</option>
+                                                        <option>Buddy Care</option>
+                                                        <option>Buddy Tech</option>
+                                                        <option>Buddy Solar</option>
+                                                        <option>Buddy Mobility</option>
+                                                        <option>Buddy Home</option>
+
+
+                                                    </select>
+                                                </div>
+
+                                                <input type="text" id="serviceSearchInput" autocomplete="off"
+                                                    placeholder="">
+
+                                                <span class="cd-headline clip is-full-width">
+                                                    <span class="cd-words-wrapper">
+                                                        <b class="is-visible">Search for a service...</b>
+                                                        <b class="is-hidden">Looking for facility solutions?</b>
+                                                        <b class="is-hidden">Explore our services...</b>
+                                                    </span>
+                                                </span>
+
+                                                <!-- Search Suggestions -->
+                                                <div id="serviceSuggestions" class="service-suggestions"></div>
+
+                                            </div>
+
+                                            <button class="rbt-round-btn search-btn" type="submit" aria-label="Search">
+
+                                                <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+
+                                            </button>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                const serviceSelect = document.querySelector(
+                                    ".rbt-select-activation"
+                                );
+
+                                const searchButton = document.querySelector(
+                                    ".rbt-round-btn.search-btn"
+                                );
+
+                                const servicePages = {
+                                    "Buddy Society": "buddy-society.html",
+                                    "Buddy Care": "buddy-care.html",
+                                    "Buddy Tech": "buddy-tech.html",
+                                    "Buddy Solar": "buddy-solar.html",
+                                    "Buddy Mobility": "buddy-mobility.html",
+                                    "Buddy Home": "buddy-home.html"
+                                };
+
+                                if (serviceSelect && searchButton) {
+                                    searchButton.addEventListener("click", function (event) {
+                                        event.preventDefault();
+
+                                        const selectedService = serviceSelect.value.trim();
+
+                                        if (selectedService === "All Services") {
+                                            window.location.href = "all-services.html";
+                                        } else if (servicePages[selectedService]) {
+                                            window.location.href = servicePages[selectedService];
+                                        }
+                                    });
+
+                                    const form = searchButton.closest("form");
+
+                                    if (form) {
+                                        form.addEventListener("submit", function (event) {
+                                            event.preventDefault();
+
+                                            const selectedService = serviceSelect.value.trim();
+
+                                            if (selectedService === "All Services") {
+                                                window.location.href = "all-services.html";
+                                            } else if (servicePages[selectedService]) {
+                                                window.location.href = servicePages[selectedService];
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        </script>
+
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+
+                                const searchInput = document.getElementById("serviceSearchInput");
+                                const suggestionsBox = document.getElementById("serviceSuggestions");
+                                const searchForm = document.getElementById("serviceSearchForm");
+
+                                if (!searchInput || !suggestionsBox || !searchForm) {
+                                    return;
+                                }
+
+
+                                const serviceLinks = {
+                                    /* Buddy Society */
+                                    "Buddy Society": "buddy-society.html",
+                                    "Facility Management": "facility-management.html",
+                                    "Society Management": "society-management.html",
+                                    "Security Management": "security-management.html",
+                                    "Housekeeping": "housekeeping.html",
+                                    "Society Maintenance": "society-maintenance.html",
+                                    "AMC Services": "amc-services.html",
+                                    "Parking Management": "parking-management.html",
+                                    "Gardening & Landscaping": "gardening-landscaping.html",
+                                    "24/7 Support & Response": "support-response.html",
+
+                                    /* Buddy Care */
+                                    "Buddy Care": "buddy-care.html",
+                                    "Plumbing Services": "plumbing-services.html",
+                                    "Electrical Services": "electrical-services.html",
+                                    "Civil Works": "civil-works.html",
+                                    "Cleaning Services": "cleaning-services.html",
+                                    "Pest Control": "pest-control.html",
+                                    "General Repairs": "general-repairs.html",
+                                    "Preventive Maintenance": "preventive-maintenance.html",
+                                    "Corrective Maintenance": "corrective-maintenance.html",
+                                    "Property Maintenance": "property-maintenance.html",
+
+                                    /* Buddy Tech */
+                                    "Buddy Tech": "buddy-tech.html",
+                                    "CCTV Solutions": "cctv-solutions.html",
+                                    "Boom Barrier": "boom-barrier.html",
+                                    "Access Control": "access-control.html",
+                                    "Smart Entry Systems": "smart-entry-systems.html",
+                                    "Security Solutions": "security-solutions.html",
+                                    "Technology Integration": "technology-integration.html",
+                                    "Smart Security": "smart-security.html",
+                                    "Surveillance Systems": "surveillance-systems.html",
+                                    "Technical Support": "technical-support.html",
+
+                                    /* Buddy Solar */
+                                    "Buddy Solar": "buddy-solar.html",
+                                    "Residential Solar": "residential-solar.html",
+                                    "Society Solar": "society-solar.html",
+                                    "Commercial Solar": "commercial-solar.html",
+                                    "Solar Installation": "solar-installation.html",
+                                    "Solar Maintenance": "solar-maintenance.html",
+                                    "Solar Guard": "solar-guard.html",
+                                    "Solar AMC": "solar-amc.html",
+                                    "Energy Solutions": "energy-solutions.html",
+                                    "Solar Consultation": "solar-consultation.html",
+
+                                    /* Buddy Mobility */
+                                    "Buddy Mobility": "buddy-mobility.html",
+                                    "EV Charging": "ev-charging.html",
+                                    "EV Charger Installation": "ev-charger-installation.html",
+                                    "EV Site Survey": "ev-site-survey.html",
+                                    "EV Infrastructure": "ev-infrastructure.html",
+                                    "EV AMC": "ev-amc.html",
+                                    "Charging Station Maintenance": "charging-station-maintenance.html",
+                                    "Residential EV Solutions": "residential-ev-solutions.html",
+                                    "Society EV Solutions": "society-ev-solutions.html",
+                                    "Commercial EV Solutions": "commercial-ev-solutions.html",
+
+                                    /* Buddy Home */
+                                    "Buddy Home": "buddy-home.html",
+                                    "Furniture Services": "furniture.html",
+                                    "Interior Solutions": "interior-solutions.html",
+                                    "Home Repairs": "home-repairs.html",
+                                    "Home Maintenance": "home-maintenance.html",
+                                    "On-Demand Services": "on-demand-services.html",
+                                    "Painting Services": "painting-services.html",
+                                    "Home Cleaning": "home-cleaning.html",
+                                    "Shrawni Smoking Zone": "shrawani-smoke-zone.html",
+                                    "Waste Management": "waste-management.html",
+                                    "Landscaping & Gardening": "landscaping-gardening.html"
+                                };
+
+                                const services = Object.keys(serviceLinks);
+
+
+                                /* -----------------------------------------
+                                   SHOW SERVICE SUGGESTIONS
+                                ----------------------------------------- */
+
+                                function showSuggestions() {
+
+                                    const searchValue = searchInput.value.trim().toLowerCase();
+
+                                    suggestionsBox.innerHTML = "";
+
+                                    if (searchValue === "") {
+                                        suggestionsBox.style.display = "none";
+                                        return;
+                                    }
+
+                                    const matchedServices = services.filter(function (service) {
+                                        return service.toLowerCase().includes(searchValue);
+                                    });
+
+                                    if (matchedServices.length === 0) {
+
+                                        suggestionsBox.innerHTML =
+                                            '<div class="service-no-result">No services found</div>';
+
+                                        suggestionsBox.style.display = "block";
+
+                                        return;
+                                    }
+
+                                    matchedServices.forEach(function (service) {
+
+                                        const suggestion = document.createElement("div");
+
+                                        suggestion.className = "service-suggestion-item";
+
+                                        suggestion.innerHTML =
+                                            '<i class="fa-sharp fa-solid fa-magnifying-glass"></i>' +
+                                            '<span>' + service + '</span>';
+
+                                        suggestion.addEventListener("click", function (event) {
+
+                                            event.preventDefault();
+                                            event.stopPropagation();
+
+                                            searchInput.value = service;
+
+                                            suggestionsBox.style.display = "none";
+
+                                            /* Navigate to selected service */
+                                            window.location.href = serviceLinks[service];
+                                        });
+
+                                        suggestionsBox.appendChild(suggestion);
+                                    });
+
+                                    suggestionsBox.style.display = "block";
+                                }
+
+
+                                /* -----------------------------------------
+                                   SEARCH WHILE TYPING
+                                ----------------------------------------- */
+
+                                searchInput.addEventListener("input", function () {
+
+                                    showSuggestions();
+
+                                });
+
+
+                                /* -----------------------------------------
+                                   FORM SEARCH / ENTER / SEARCH BUTTON
+                                ----------------------------------------- */
+
+                                searchForm.addEventListener("submit", function (event) {
+
+                                    event.preventDefault();
+
+                                    const searchValue = searchInput.value.trim().toLowerCase();
+
+                                    if (searchValue === "") {
+
+                                        searchInput.focus();
+
+                                        return;
+                                    }
+
+                                    const matchedService = services.find(function (service) {
+
+                                        return service.toLowerCase() === searchValue;
+
+                                    });
+
+                                    if (matchedService) {
+
+                                        suggestionsBox.style.display = "none";
+
+                                        window.location.href = serviceLinks[matchedService];
+
+                                    } else {
+
+                                        /* Try partial search */
+                                        const partialMatch = services.find(function (service) {
+
+                                            return service.toLowerCase().includes(searchValue);
+
+                                        });
+
+                                        if (partialMatch) {
+
+                                            searchInput.value = partialMatch;
+
+                                            suggestionsBox.style.display = "none";
+
+                                            window.location.href = serviceLinks[partialMatch];
+
+                                        } else {
+
+                                            alert(
+                                                "Service not found. Please select a service from the suggestions."
+                                            );
+
+                                        }
+                                    }
+
+                                });
+
+
+                                /* -----------------------------------------
+                                   CLOSE SUGGESTIONS WHEN CLICKING OUTSIDE
+                                ----------------------------------------- */
+
+                                document.addEventListener("click", function (event) {
+
+                                    if (!event.target.closest(".rbt-search-input-section")) {
+
+                                        suggestionsBox.style.display = "none";
+
+                                    }
+
+                                });
+
+
+                                /* -----------------------------------------
+                                   SHOW SUGGESTIONS AGAIN WHEN INPUT IS FOCUSED
+                                   ----------------------------------------- */
+
+                                searchInput.addEventListener("focus", function () {
+
+                                    if (searchInput.value.trim() !== "") {
+
+                                        showSuggestions();
+
+                                    }
+
+                                });
+
+                            });
+                        </script>
+
+
+                        <div class="header-right">
+                            <!-- Navbar Icons -->
+                            <ul class="rbt-quick-access">
+                                <li
+                                    class="rbt-access-box rbt-scroll-trigger fade_in animation-order-1 rbt-access-box-has-bg-hover d-none d-lg-flex">
+                                    <a href="tel:+919096324843" class="rbt-access-box-wrapper">
+                                        <div class="rbt-round-btn rbt-bg-static-gray">
+                                            <i class="fa-regular fa-phone"></i>
+                                        </div>
+                                        <div class="content p-0">
+                                            <p>Call Us</p>
+                                            <span>+91 9096324843</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li
+                                    class="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 rbt-access-box-has-bg-hover d-none d-lg-flex">
+                                    <a href="mailto:buddyservices360@gmail.com" class="rbt-access-box-wrapper">
+                                        <div class="rbt-round-btn rbt-bg-static-gray">
+                                            <i class="fa-regular fa-envelope"></i>
+                                        </div>
+                                        <div class="content">
+                                            <p>Email Us</p>
+                                            <span>buddyservices360@gmail.com</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li
+                                    class="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 rbt-access-box-has-bg-hover d-flex d-lg-none">
+                                    <a class="search-trigger-active rbt-round-btn rbt-bg-static-gray rbt-modern-close-btn"
+                                        href="#">
+                                        <i class="fa-regular fa-search search-icon"></i>
+                                        <div class="modern-close-wrapper"></div>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Header Mid -->
+        <div class="rbt-header-middle position-relative rbt-header-mid-1 rbt-bg-color-primary d-none d-xl-block">
+            <div class="container">
+                <div class="rbt-header-sec align-items-center @@flexDirection">
+
+                    <div class="rbt-main-navigation d-none d-xl-block">
+                        <nav class="rbt-mainmenu-nav">
+                            <ul class="mainmenu has-nav-bg-shape-hover">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html"> About Us </a></li>
+                                <li class="with-rbt-megamenu has-menu-child-item position-static">
+
+                                    <a href="all-services.html">All Services <i
+                                            class="fa-regular fa-chevron-down"></i></a>
+
+                                    <!-- Start Mega Menu  -->
+                                    <div class="rbt-megamenu rbt-width-fullscreen mega-has-bg-img mega-bg-one p-0">
+
+                                        <!-- Start Mega Menu  -->
+                                        <div class="rbt-megamenu-wrapper bg-transparent">
+
+                                            <div class="wrapper">
+
+
+                                                <div class="row row--12 mt_dec--12">
+                                                    <div class="col-xl-12">
+                                                        <div class="h-100 d-flex flex-column justify-content-between">
+                                                            <div class="row">
+
+                                                                <!-- Buddy Society -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Society</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="facility-management.html">Facility
+                                                                                Management</a></li>
+                                                                        <li><a href="society-management.html">Society
+                                                                                Management</a></li>
+                                                                        <li><a href="security-management.html">Security
+                                                                                Management</a></li>
+                                                                        <li><a href="housekeeping.html">Housekeeping</a>
+                                                                        </li>
+                                                                        <li><a href="society-maintenance.html">Society
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="amc-services.html">AMC Services</a>
+                                                                        </li>
+                                                                        <li><a href="parking-management.html">Parking
+                                                                                Management</a></li>
+                                                                        <li><a href="gardening-landscaping.html">Gardening
+                                                                                & Landscaping</a></li>
+                                                                        <li><a href="support-response.html">24/7 Support
+                                                                                & Response</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Care -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Care</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="plumbing-services.html">Plumbing
+                                                                                Services</a></li>
+                                                                        <li><a href="electrical-services.html">Electrical
+                                                                                Services</a></li>
+                                                                        <li><a href="civil-works.html">Civil Works</a>
+                                                                        </li>
+                                                                        <li><a href="cleaning-services.html">Cleaning
+                                                                                Services</a></li>
+                                                                        <li><a href="pest-control.html">Pest Control</a>
+                                                                        </li>
+                                                                        <li><a href="general-repairs.html">General
+                                                                                Repairs</a></li>
+                                                                        <li><a href="preventive-maintenance.html">Preventive
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="corrective-maintenance.html">Corrective
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="property-maintenance.html">Property
+                                                                                Maintenance</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Tech -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Tech</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="cctv-solutions.html">CCTV
+                                                                                Solutions</a></li>
+                                                                        <li><a href="boom-barrier.html">Boom Barrier</a>
+                                                                        </li>
+                                                                        <li><a href="access-control.html">Access
+                                                                                Control</a></li>
+                                                                        <li><a href="smart-entry-systems.html">Smart
+                                                                                Entry Systems</a></li>
+                                                                        <li><a href="security-solutions.html">Security
+                                                                                Solutions</a></li>
+                                                                        <li><a href="technology-integration.html">Technology
+                                                                                Integration</a></li>
+                                                                        <li><a href="smart-security.html">Smart
+                                                                                Security</a></li>
+                                                                        <li><a href="surveillance-systems.html">Surveillance
+                                                                                Systems</a></li>
+                                                                        <li><a href="technical-support.html">Technical
+                                                                                Support</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Solar -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Solar</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="residential-solar.html">Residential
+                                                                                Solar</a></li>
+                                                                        <li><a href="society-solar.html">Society
+                                                                                Solar</a></li>
+                                                                        <li><a href="commercial-solar.html">Commercial
+                                                                                Solar</a></li>
+                                                                        <li><a href="solar-installation.html">Solar
+                                                                                Installation</a></li>
+                                                                        <li><a href="solar-maintenance.html">Solar
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="solar-guard.html">Solar Guard</a>
+                                                                        </li>
+                                                                        <li><a href="solar-amc.html">Solar AMC</a></li>
+                                                                        <li><a href="energy-solutions.html">Energy
+                                                                                Solutions</a></li>
+                                                                        <li><a href="solar-consultation.html">Solar
+                                                                                Consultation</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Mobility -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Mobility</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="ev-charging.html">EV Charging</a>
+                                                                        </li>
+                                                                        <li><a href="ev-charger-installation.html">EV
+                                                                                Charger Installation</a></li>
+                                                                        <li><a href="ev-site-survey.html">EV Site
+                                                                                Survey</a></li>
+                                                                        <li><a href="ev-infrastructure.html">EV
+                                                                                Infrastructure</a></li>
+                                                                        <li><a href="ev-amc.html">EV AMC</a></li>
+                                                                        <li><a href="charging-station-maintenance.html">Charging
+                                                                                Station Maintenance</a></li>
+                                                                        <li><a href="residential-ev-solutions.html">Residential
+                                                                                EV Solutions</a></li>
+                                                                        <li><a href="society-ev-solutions.html">Society
+                                                                                EV Solutions</a></li>
+                                                                        <li><a href="commercial-ev-solutions.html">Commercial
+                                                                                EV Solutions</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Home -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Home</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li>
+                                                                            <a href="furniture.html">
+                                                                                Furniture Services
+                                                                            </a>
+                                                                        </li>
+                                                                        <li><a href="interior-solutions.html">Interior
+                                                                                Solutions</a></li>
+                                                                        <li><a href="home-repairs.html">Home Repairs</a>
+                                                                        </li>
+                                                                        <li><a href="home-maintenance.html">Home
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="on-demand-services.html">On-Demand
+                                                                                Services</a></li>
+                                                                        <li><a href="painting-services.html">Painting
+                                                                                Services</a></li>
+                                                                        <li><a href="home-cleaning.html">Home
+                                                                                Cleaning</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </div>
+                                        <!-- End Mega Menu  -->
+
+                                    </div>
+                                    <!-- End Mega Menu  -->
+
+                                </li>
+
+
+
+                                <li>
+                                    <a href="calculator.html" id="calculatorModalBtn">
+                                        Calculator
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                                        data-bs-target="#contactModal">
+                                        Contact Us
+                                    </a>
+                                </li>
+
+
+
+
+
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="rbt-header-sec-col rbt-header-right">
+                        <div class="rbt-header-content m--0">
+                            <ul class="rbt-quick-access rbt-quick-access-var-one">
+                                <li
+                                    class="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 rbt-access-box-has-bg-hover d-none d-lg-flex">
+                                    <a href="vendor-registration.html" class="rbt-access-box-wrapper">
+                                        <div class="rbt-round-btn rbt-bg-static-gray">
+                                            <i class="fa-regular fa-user"></i>
+                                        </div>
+                                        <div class="content">
+                                            <p>Vendor Registration</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li
+                                    class="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 rbt-access-box-has-bg-hover d-none d-lg-flex">
+                                    <a href="#!" class="rbt-access-box-wrapper" data-bs-toggle="modal"
+                                        data-bs-target="#signinModal">
+                                        <div class="rbt-round-btn rbt-bg-static-gray">
+                                            <i class="fa-regular fa-user"></i>
+                                        </div>
+                                        <div class="content">
+                                            <p>Login & Sign in</p>
+
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Top -->
+
+
+
+
+
+        <div class="interior-calculator-popup" id="interiorCalculatorPopup">
+
+            <div class="interior-calculator-window">
+
+                <!-- Header -->
+                <div class="calculator-popup-header">
+
+                    <div class="calculator-popup-brand">
+
+                        <div class="calculator-popup-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+
+                        <div>
+                            <span>HOME INTERIOR</span>
+                            <h2>Budget Calculator</h2>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="calculator-close-btn" id="calculatorCloseBtn"
+                        aria-label="Close Calculator">
+
+                        <i class="fas fa-times"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- Body -->
+                <div class="calculator-popup-body">
+
+                    <div class="calculator-main-container">
+
+                        <!-- Property Details -->
+                        <div class="calculator-property-box">
+
+                            <div class="calculator-field">
+
+                                <label>
+                                    Property Type
+                                </label>
+
+                                <div class="calculator-input-wrap">
+
+                                    <i class="fas fa-building"></i>
+
+                                    <select id="propertyType">
+
+                                        <option value="1BHK">
+                                            1 BHK
+                                        </option>
+
+                                        <option value="2BHK" selected>
+                                            2 BHK
+                                        </option>
+
+                                        <option value="3BHK">
+                                            3 BHK
+                                        </option>
+
+                                        <option value="4BHK">
+                                            4 BHK
+                                        </option>
+
+                                        <option value="Villa">
+                                            Villa
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="calculator-field">
+
+                                <label>
+                                    Carpet Area
+                                </label>
+
+                                <div class="calculator-input-wrap">
+
+                                    <i class="fas fa-ruler-combined"></i>
+
+                                    <input type="number" id="area" value="1100" min="1" placeholder="Enter area">
+
+                                    <span class="input-unit">
+                                        sq.ft.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Cost Heading -->
+                        <div class="calculator-cost-heading">
+
+                            <div>
+                                <span>
+                                    <i class="fas fa-list-check"></i>
+                                    INTERIOR COMPONENTS
+                                </span>
+
+                                <h2>
+                                    Estimated Cost Breakdown
+                                </h2>
+                            </div>
+
+                            <p>
+                                Update any amount below to get an instant total.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Cost Grid -->
+                        <div class="calculator-cost-grid">
+
+
+                            <!-- Kitchen -->
+                            <div class="calculator-cost-card">
+
+                                <div class="cost-card-icon">
+                                    <i class="fas fa-kitchen-set"></i>
+                                </div>
+
+                                <div class="cost-card-content">
+
+                                    <span>01</span>
+
+                                    <h3>
+                                        Modular Kitchen
+                                    </h3>
+
+                                    <p>
+                                        Cabinets, counter & storage
+                                    </p>
+
+                                </div>
+
+                                <div class="cost-input">
+
+                                    <span>₹</span>
+
+                                    <input type="number" class="budget-input" value="0" min="0">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Wardrobes -->
+                            <div class="calculator-cost-card">
+
+                                <div class="cost-card-icon">
+                                    <i class="fas fa-door-closed"></i>
+                                </div>
+
+                                <div class="cost-card-content">
+
+                                    <span>02</span>
+
+                                    <h3>
+                                        Wardrobes
+                                    </h3>
+
+                                    <p>
+                                        Bedroom storage solutions
+                                    </p>
+
+                                </div>
+
+                                <div class="cost-input">
+
+                                    <span>₹</span>
+
+                                    <input type="number" class="budget-input" value="0" min="0">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Living Room -->
+                            <div class="calculator-cost-card">
+
+                                <div class="cost-card-icon">
+                                    <i class="fas fa-couch"></i>
+                                </div>
+
+                                <div class="cost-card-content">
+
+                                    <span>03</span>
+
+                                    <h3>
+                                        Living Room
+                                    </h3>
+
+                                    <p>
+                                        TV unit, furniture & decor
+                                    </p>
+
+                                </div>
+
+                                <div class="cost-input">
+
+                                    <span>₹</span>
+
+                                    <input type="number" class="budget-input" value="0" min="0">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Bedrooms -->
+                            <div class="calculator-cost-card">
+
+                                <div class="cost-card-icon">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+
+                                <div class="cost-card-content">
+
+                                    <span>04</span>
+
+                                    <h3>
+                                        Bedrooms
+                                    </h3>
+
+                                    <p>
+                                        Beds, side tables & storage
+                                    </p>
+
+                                </div>
+
+                                <div class="cost-input">
+
+                                    <span>₹</span>
+
+                                    <input type="number" class="budget-input" value="0" min="0">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Electrical -->
+                            <div class="calculator-cost-card">
+
+                                <div class="cost-card-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+
+                                <div class="cost-card-content">
+
+                                    <span>05</span>
+
+                                    <h3>
+                                        Electrical
+                                    </h3>
+
+                                    <p>
+                                        Lighting, wiring & fittings
+                                    </p>
+
+                                </div>
+
+                                <div class="cost-input">
+
+                                    <span>₹</span>
+
+                                    <input type="number" class="budget-input" value="0" min="0">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- False Ceiling -->
+                            <div class="calculator-cost-card">
+
+                                <div class="cost-card-icon">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+
+                                <div class="cost-card-content">
+
+                                    <span>06</span>
+
+                                    <h3>
+                                        False Ceiling
+                                    </h3>
+
+                                    <p>
+                                        Ceiling design & lighting
+                                    </p>
+
+                                </div>
+
+                                <div class="cost-input">
+
+                                    <span>₹</span>
+
+                                    <input type="number" class="budget-input" value="0" min="0">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Furniture -->
+                            <div class="calculator-cost-card">
+
+                                <div class="cost-card-icon">
+                                    <i class="fas fa-chair"></i>
+                                </div>
+
+                                <div class="cost-card-content">
+
+                                    <span>07</span>
+
+                                    <h3>
+                                        Furniture
+                                    </h3>
+
+                                    <p>
+                                        Sofa, dining & other furniture
+                                    </p>
+
+                                </div>
+
+                                <div class="cost-input">
+
+                                    <span>₹</span>
+
+                                    <input type="number" class="budget-input" value="0" min="0">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Painting -->
+                            <div class="calculator-cost-card">
+
+                                <div class="cost-card-icon">
+                                    <i class="fas fa-paint-roller"></i>
+                                </div>
+
+                                <div class="cost-card-content">
+
+                                    <span>08</span>
+
+                                    <h3>
+                                        Painting
+                                    </h3>
+
+                                    <p>
+                                        Walls, ceilings & finishing
+                                    </p>
+
+                                </div>
+
+                                <div class="cost-input">
+
+                                    <span>₹</span>
+
+                                    <input type="number" class="budget-input" value="0" min="0">
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- Bottom Summary -->
+                        <div class="calculator-summary">
+
+                            <div class="summary-left">
+
+                                <div class="summary-icon">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        TOTAL ESTIMATED INTERIOR COST
+                                    </span>
+
+                                    <small id="summaryDetails">
+                                        2 BHK • 1,100 sq.ft.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="summary-right">
+
+                                <span>
+                                    Estimated Budget
+                                </span>
+
+                                <strong id="estimatedTotal">
+                                    ₹10,20,000
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Footer Note -->
+                        <div class="calculator-footer">
+
+                            <div>
+                                <i class="fas fa-circle-info"></i>
+
+                                <span>
+                                    This is an approximate estimate.
+                                    Final pricing may vary based on materials,
+                                    design and site requirements.
+                                </span>
+                            </div>
+
+                            <button type="button" id="resetCalculator" class="calculator-reset-btn">
+
+                                <i class="fas fa-rotate-left"></i>
+                                Reset Calculator
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            /* =========================================================
+               HOME INTERIOR CALCULATOR
+            ========================================================= */
+
+            document.addEventListener("DOMContentLoaded", function () {
+
+                const calculatorBtn =
+                    document.getElementById("calculatorModalBtn");
+
+                const calculatorPopup =
+                    document.getElementById("interiorCalculatorPopup");
+
+                const closeBtn =
+                    document.getElementById("calculatorCloseBtn");
+
+                const resetBtn =
+                    document.getElementById("resetCalculator");
+
+                const propertyType =
+                    document.getElementById("propertyType");
+
+                const area =
+                    document.getElementById("area");
+
+                const estimatedTotal =
+                    document.getElementById("estimatedTotal");
+
+                const summaryDetails =
+                    document.getElementById("summaryDetails");
+
+                const budgetInputs =
+                    document.querySelectorAll(".budget-input");
+
+
+                /* =====================================================
+                   OPEN CALCULATOR
+                ===================================================== */
+
+                if (calculatorBtn) {
+
+                    calculatorBtn.addEventListener("click", function (event) {
+
+                        /*
+                         * Prevent calculator.html from opening.
+                         * The calculator will open in the popup instead.
+                         */
+
+                        event.preventDefault();
+
+                        calculatorPopup.classList.add("active");
+
+                        document.body.classList.add("calculator-open");
+
+                    });
+
+                }
+
+
+                /* =====================================================
+                   CLOSE CALCULATOR
+                ===================================================== */
+
+                function closeCalculator() {
+
+                    calculatorPopup.classList.remove("active");
+
+                    document.body.classList.remove("calculator-open");
+
+                }
+
+
+                if (closeBtn) {
+
+                    closeBtn.addEventListener("click", function () {
+
+                        closeCalculator();
+
+                    });
+
+                }
+
+
+                /* =====================================================
+                   CLICK OUTSIDE
+                ===================================================== */
+
+                calculatorPopup.addEventListener("click", function (event) {
+
+                    if (event.target === calculatorPopup) {
+
+                        closeCalculator();
+
+                    }
+
+                });
+
+
+                /* =====================================================
+                   ESC KEY
+                ===================================================== */
+
+                document.addEventListener("keydown", function (event) {
+
+                    if (
+                        event.key === "Escape" &&
+                        calculatorPopup.classList.contains("active")
+                    ) {
+
+                        closeCalculator();
+
+                    }
+
+                });
+
+
+                /* =====================================================
+                   FORMAT INDIAN CURRENCY
+                ===================================================== */
+
+                function formatIndianCurrency(number) {
+
+                    number = Math.round(Number(number) || 0);
+
+                    return "₹" + number.toLocaleString("en-IN");
+
+                }
+
+
+                /* =====================================================
+                   CALCULATE TOTAL
+                ===================================================== */
+
+                function calculateBudget() {
+
+                    let total = 0;
+
+                    budgetInputs.forEach(function (input) {
+
+                        let value = parseFloat(input.value);
+
+                        if (isNaN(value) || value < 0) {
+
+                            value = 0;
+
+                        }
+
+                        total += value;
+
+                    });
+
+
+                    estimatedTotal.textContent =
+                        formatIndianCurrency(total);
+
+
+                    let selectedProperty =
+                        propertyType.options[
+                            propertyType.selectedIndex
+                        ].text;
+
+
+                    let areaValue =
+                        parseFloat(area.value) || 0;
+
+
+                    summaryDetails.textContent =
+                        selectedProperty +
+                        " • " +
+                        areaValue.toLocaleString("en-IN") +
+                        " sq.ft.";
+
+                }
+
+
+                /* =====================================================
+                   INPUT EVENTS
+                ===================================================== */
+
+                budgetInputs.forEach(function (input) {
+
+                    input.addEventListener("input", calculateBudget);
+
+                    input.addEventListener("change", calculateBudget);
+
+                });
+
+
+                if (propertyType) {
+
+                    propertyType.addEventListener(
+                        "change",
+                        calculateBudget
+                    );
+
+                }
+
+
+                if (area) {
+
+                    area.addEventListener(
+                        "input",
+                        calculateBudget
+                    );
+
+                }
+
+
+                /* =====================================================
+                   RESET
+                ===================================================== */
+
+                if (resetBtn) {
+
+                    resetBtn.addEventListener("click", function () {
+
+                        propertyType.value = "2BHK";
+
+                        area.value = 1100;
+
+
+                        const defaultValues = [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ];
+
+
+                        budgetInputs.forEach(function (input, index) {
+
+                            input.value = defaultValues[index];
+
+                        });
+
+
+                        calculateBudget();
+
+                    });
+
+                }
+
+
+                /* =====================================================
+                   INITIAL CALCULATION
+                ===================================================== */
+
+                calculateBudget();
+
+            });
+
+        </script>
+
+        <div
+            class="rbt-header-common-sticky-activation rbt-header-wrapper-common justify-content-between rbt-bg-color-white">
+
+            <div class="container">
+                <div class="mainbar-row rbt-mainbar-row-md-height  align-items-center">
+                    <div class="header-left">
+                        <div class="rbt-header-content d-flex">
+                            <div class="header-info p-0 d-none d-xxl-flex mr--24">
+                                <a class="rbt-offcanvas-trigger-btn rbt-cat-offcanvas-activation rbt-burger-menu-bar"
+                                    href="#!">
+                                    <div class="rbt-burger-menu-bar-wrapper">
+                                        <i class="rbt-line-btn">
+                                            <span class="rbt-lines"></span>
+                                        </i>
+                                        <i class="rbt-line-btn rbt-hover-effect">
+                                            <span class="rbt-lines"></span>
+                                        </i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="header-info d-xl-block d-none">
+                                <div class="logo rbt-logo-height-sm">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/logo.png" alt="Ecommerce Logo Images">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Start Mobile-Menu-Bar -->
+                        <div class="mobile-menu-bar d-block d-xl-none">
+                            <div class="hamberger">
+                                <button class="hamberger-button rbt-round-btn">
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Start Mobile-Menu-Bar -->
+                    </div>
+
+                    <div class="header-info d-xl-none d-block">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="assets/images/logo/logo.png" alt="Ecommerce Logo Images">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rbt-header-content d-none d-xl-block">
+                        <div class="header-info">
+                            <nav class="rbt-mainmenu-nav">
+                                <ul class="mainmenu mainmenu has-nav-bg-shape-hover">
+
+
+                                    <li><a href="index.html"> Home</a></li>
+                                    <li><a href="about.html"> About Us </a></li>
+
+
+
+                                    <li class="with-rbt-megamenu has-menu-child-item position-static">
+
+                                        <a href="all-services.html">All Services <i
+                                                class="fa-regular fa-chevron-down"></i></a>
+
+                                        <!-- Start Mega Menu -->
+                                        <div class="rbt-megamenu container pl_sm--0 pl_md--0 pl_lg--0">
+
+                                            <div class="rbt-megamenu-wrapper">
+
+                                                <div class="row row--12 d-flex justify-content-between">
+
+                                                    <div class="col-xl-12">
+
+                                                        <div class="h-100 d-flex flex-column justify-content-between">
+
+                                                            <div class="row">
+
+                                                                <!-- Buddy Society -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Society</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="facility-management.html">Facility
+                                                                                Management</a></li>
+                                                                        <li><a href="society-management.html">Society
+                                                                                Management</a></li>
+                                                                        <li><a href="security-management.html">Security
+                                                                                Management</a></li>
+                                                                        <li><a href="housekeeping.html">Housekeeping</a>
+                                                                        </li>
+                                                                        <li><a href="society-maintenance.html">Society
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="amc-services.html">AMC Services</a>
+                                                                        </li>
+                                                                        <li><a href="parking-management.html">Parking
+                                                                                Management</a></li>
+                                                                        <li><a href="gardening-landscaping.html">Gardening
+                                                                                & Landscaping</a></li>
+                                                                        <li><a href="support-response.html">24/7 Support
+                                                                                & Response</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Care -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Care</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="plumbing-services.html">Plumbing
+                                                                                Services</a></li>
+                                                                        <li><a href="electrical-services.html">Electrical
+                                                                                Services</a></li>
+                                                                        <li><a href="civil-works.html">Civil Works</a>
+                                                                        </li>
+                                                                        <li><a href="cleaning-services.html">Cleaning
+                                                                                Services</a></li>
+                                                                        <li><a href="pest-control.html">Pest Control</a>
+                                                                        </li>
+                                                                        <li><a href="general-repairs.html">General
+                                                                                Repairs</a></li>
+                                                                        <li><a href="preventive-maintenance.html">Preventive
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="corrective-maintenance.html">Corrective
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="property-maintenance.html">Property
+                                                                                Maintenance</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Tech -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Tech</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="cctv-solutions.html">CCTV
+                                                                                Solutions</a></li>
+                                                                        <li><a href="boom-barrier.html">Boom Barrier</a>
+                                                                        </li>
+                                                                        <li><a href="access-control.html">Access
+                                                                                Control</a></li>
+                                                                        <li><a href="smart-entry-systems.html">Smart
+                                                                                Entry Systems</a></li>
+                                                                        <li><a href="security-solutions.html">Security
+                                                                                Solutions</a></li>
+                                                                        <li><a href="technology-integration.html">Technology
+                                                                                Integration</a></li>
+                                                                        <li><a href="smart-security.html">Smart
+                                                                                Security</a></li>
+                                                                        <li><a href="surveillance-systems.html">Surveillance
+                                                                                Systems</a></li>
+                                                                        <li><a href="technical-support.html">Technical
+                                                                                Support</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Solar -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Solar</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="residential-solar.html">Residential
+                                                                                Solar</a></li>
+                                                                        <li><a href="society-solar.html">Society
+                                                                                Solar</a></li>
+                                                                        <li><a href="commercial-solar.html">Commercial
+                                                                                Solar</a></li>
+                                                                        <li><a href="solar-installation.html">Solar
+                                                                                Installation</a></li>
+                                                                        <li><a href="solar-maintenance.html">Solar
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="solar-guard.html">Solar Guard</a>
+                                                                        </li>
+                                                                        <li><a href="solar-amc.html">Solar AMC</a></li>
+                                                                        <li><a href="energy-solutions.html">Energy
+                                                                                Solutions</a></li>
+                                                                        <li><a href="solar-consultation.html">Solar
+                                                                                Consultation</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Mobility -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Mobility</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li><a href="ev-charging.html">EV Charging</a>
+                                                                        </li>
+                                                                        <li><a href="ev-charger-installation.html">EV
+                                                                                Charger Installation</a></li>
+                                                                        <li><a href="ev-site-survey.html">EV Site
+                                                                                Survey</a></li>
+                                                                        <li><a href="ev-infrastructure.html">EV
+                                                                                Infrastructure</a></li>
+                                                                        <li><a href="ev-amc.html">EV AMC</a></li>
+                                                                        <li><a href="charging-station-maintenance.html">Charging
+                                                                                Station Maintenance</a></li>
+                                                                        <li><a href="residential-ev-solutions.html">Residential
+                                                                                EV Solutions</a></li>
+                                                                        <li><a href="society-ev-solutions.html">Society
+                                                                                EV Solutions</a></li>
+                                                                        <li><a href="commercial-ev-solutions.html">Commercial
+                                                                                EV Solutions</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                                <!-- Buddy Home -->
+                                                                <div
+                                                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                                                    <p class="rbt-short-title h5">Buddy Home</p>
+                                                                    <ul class="mega-menu-item">
+                                                                        <li>
+                                                                            <a href="furniture.html">
+                                                                                Furniture Services
+                                                                            </a>
+                                                                        </li>
+                                                                        <li><a href="interior-solutions.html">Interior
+                                                                                Solutions</a></li>
+                                                                        <li><a href="home-repairs.html">Home Repairs</a>
+                                                                        </li>
+                                                                        <li><a href="home-maintenance.html">Home
+                                                                                Maintenance</a></li>
+                                                                        <li><a href="on-demand-services.html">On-Demand
+                                                                                Services</a></li>
+                                                                        <li><a href="painting-services.html">Painting
+                                                                                Services</a></li>
+                                                                        <li><a href="home-cleaning.html">Home
+                                                                                Cleaning</a></li>
+                                                                    </ul>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row row--12 d-none d-xl-flex">
+
+                                                                <div class="col-12">
+
+                                                                    <hr
+                                                                        class="rbt-separator rbt-separator-gray200 mb--16 mt--16 mt_sm--12 mb_sm--12 rbt-bg-color-gray-100">
+
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- End Mega Menu -->
+
+                                    </li>
+
+                                    <li><a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal">
+                                            Contact Us
+                                        </a></li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="header-right">
+                        <!-- Navbar Icons -->
+                        <ul class="rbt-quick-access rbt-gap--12">
+
+                            <li class="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 tooltips tooltip-distance-lg"
+                                data-tooltip="Search" data-tooltip-position="bottom">
+                                <a class="rbt-round-btn has-rbt-md-fsize rbt-common-search-trigger-active rbt-modern-close-btn"
+                                    href="#">
+                                    <i class="fa-regular fa-search search-icon"></i>
+                                    <div class="modern-close-wrapper"></div>
+                                </a>
+                            </li>
+
+                            <li class="rbt-access-box rbt-scroll-trigger fade_in animation-order-3 d-none d-lg-flex tooltips tooltip-distance-lg"
+                                data-tooltip="Sign In" data-tooltip-position="bottom">
+                                <a class="rbt-round-btn has-rbt-md-fsize" href="#!" data-bs-toggle="modal"
+                                    data-bs-target="#signinModal">
+                                    <i class="fa-regular fa-user"></i>
+                                </a>
+                            </li>
+
+
+
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Start Search Dropdown  -->
+            <div class="rbt-search-dropdown rbt-common-search-dropdown-activation">
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="rbt-component-section-title border-0 p-0 text-center">
+                                <h2 class="rbt-title text-start text-md-center"><span class="rbt-bold--text">Search For
+                                        Products</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form class="rbt-search-form">
+                                <div class="input-sectition position-relative w-100 mr--12 mr_sm--4">
+                                    <input class="search-input" type="text" placeholder="What Are You Looking For?">
+                                    <i class="fa-sharp fa-regular inner-search-icon fa-magnifying-glass"></i>
+                                    <button class="media-search-btn media-search-popupactivation">
+                                        <i class="fa-sharp fa-regular fa-camera"></i>
+                                    </button>
+                                </div>
+                                <div class="submit-btn">
+                                    <a class="rbt-btn btn-md" href="#">Search</a>
+                                </div>
+                                <div class="rbt-media-search-section">
+                                    <div class="rbt-media-wrapper">
+                                        <div class="section-title"><span class="title b1">Find product inspiration with
+                                                Image
+                                                Search</span></div>
+                                        <div class="rbt-file-upload-container">
+                                            <input type="file" class="fileInput" multiple hidden>
+                                            <div class="file-upload-area fileUploadArea">
+                                                <div class="file-upload-content">
+                                                    <span class="rbt-icon"><i
+                                                            class="fa-solid fa-cloud-arrow-up"></i></span>
+                                                    <p class="rbt-title">Drag & Drop Files Here <span
+                                                            class="rbt-text-color-gray-400">Or</span></p>
+                                                    <button class="browseFilesButton rbt-btn rbt-btn-sm">Browse
+                                                        Files</button>
+                                                </div>
+                                                <div class="fileList file-list"></div>
+                                            </div>
+                                            <p class="fileCount">0 of 10</p>
+                                        </div>
+
+                                        <button type="button" class="rbt-round-btn rbt-ms-dismiss-btn">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0);" class="rbt-ms-dismiss-outsider"></a>
+                            </form>
+                            <div class="row">
+
+                                <!-- Buddy Society -->
+                                <div
+                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                    <p class="rbt-short-title h5">Buddy Society</p>
+                                    <ul class="mega-menu-item">
+                                        <li><a href="facility-management.html">Facility
+                                                Management</a></li>
+                                        <li><a href="society-management.html">Society
+                                                Management</a></li>
+                                        <li><a href="security-management.html">Security
+                                                Management</a></li>
+                                        <li><a href="housekeeping.html">Housekeeping</a>
+                                        </li>
+                                        <li><a href="society-maintenance.html">Society
+                                                Maintenance</a></li>
+                                        <li><a href="amc-services.html">AMC Services</a>
+                                        </li>
+                                        <li><a href="parking-management.html">Parking
+                                                Management</a></li>
+                                        <li><a href="gardening-landscaping.html">Gardening
+                                                & Landscaping</a></li>
+                                        <li><a href="support-response.html">24/7 Support
+                                                & Response</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Buddy Care -->
+                                <div
+                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                    <p class="rbt-short-title h5">Buddy Care</p>
+                                    <ul class="mega-menu-item">
+                                        <li><a href="plumbing-services.html">Plumbing
+                                                Services</a></li>
+                                        <li><a href="electrical-services.html">Electrical
+                                                Services</a></li>
+                                        <li><a href="civil-works.html">Civil Works</a>
+                                        </li>
+                                        <li><a href="cleaning-services.html">Cleaning
+                                                Services</a></li>
+                                        <li><a href="pest-control.html">Pest Control</a>
+                                        </li>
+                                        <li><a href="general-repairs.html">General
+                                                Repairs</a></li>
+                                        <li><a href="preventive-maintenance.html">Preventive
+                                                Maintenance</a></li>
+                                        <li><a href="corrective-maintenance.html">Corrective
+                                                Maintenance</a></li>
+                                        <li><a href="property-maintenance.html">Property
+                                                Maintenance</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Buddy Tech -->
+                                <div
+                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                    <p class="rbt-short-title h5">Buddy Tech</p>
+                                    <ul class="mega-menu-item">
+                                        <li><a href="cctv-solutions.html">CCTV
+                                                Solutions</a></li>
+                                        <li><a href="boom-barrier.html">Boom Barrier</a>
+                                        </li>
+                                        <li><a href="access-control.html">Access
+                                                Control</a></li>
+                                        <li><a href="smart-entry-systems.html">Smart
+                                                Entry Systems</a></li>
+                                        <li><a href="security-solutions.html">Security
+                                                Solutions</a></li>
+                                        <li><a href="technology-integration.html">Technology
+                                                Integration</a></li>
+                                        <li><a href="smart-security.html">Smart
+                                                Security</a></li>
+                                        <li><a href="surveillance-systems.html">Surveillance
+                                                Systems</a></li>
+                                        <li><a href="technical-support.html">Technical
+                                                Support</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Buddy Solar -->
+                                <div
+                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                    <p class="rbt-short-title h5">Buddy Solar</p>
+                                    <ul class="mega-menu-item">
+                                        <li><a href="residential-solar.html">Residential
+                                                Solar</a></li>
+                                        <li><a href="society-solar.html">Society
+                                                Solar</a></li>
+                                        <li><a href="commercial-solar.html">Commercial
+                                                Solar</a></li>
+                                        <li><a href="solar-installation.html">Solar
+                                                Installation</a></li>
+                                        <li><a href="solar-maintenance.html">Solar
+                                                Maintenance</a></li>
+                                        <li><a href="solar-guard.html">Solar Guard</a>
+                                        </li>
+                                        <li><a href="solar-amc.html">Solar AMC</a></li>
+                                        <li><a href="energy-solutions.html">Energy
+                                                Solutions</a></li>
+                                        <li><a href="solar-consultation.html">Solar
+                                                Consultation</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Buddy Mobility -->
+                                <div
+                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                    <p class="rbt-short-title h5">Buddy Mobility</p>
+                                    <ul class="mega-menu-item">
+                                        <li><a href="ev-charging.html">EV Charging</a>
+                                        </li>
+                                        <li><a href="ev-charger-installation.html">EV
+                                                Charger Installation</a></li>
+                                        <li><a href="ev-site-survey.html">EV Site
+                                                Survey</a></li>
+                                        <li><a href="ev-infrastructure.html">EV
+                                                Infrastructure</a></li>
+                                        <li><a href="ev-amc.html">EV AMC</a></li>
+                                        <li><a href="charging-station-maintenance.html">Charging
+                                                Station Maintenance</a></li>
+                                        <li><a href="residential-ev-solutions.html">Residential
+                                                EV Solutions</a></li>
+                                        <li><a href="society-ev-solutions.html">Society
+                                                EV Solutions</a></li>
+                                        <li><a href="commercial-ev-solutions.html">Commercial
+                                                EV Solutions</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Buddy Home -->
+                                <div
+                                    class="col-12 col-lg-2 single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+                                    <p class="rbt-short-title h5">Buddy Home</p>
+                                    <ul class="mega-menu-item">
+                                        <li><a href="furniture.html">Furniture
+                                                Services</a></li>
+                                        <li><a href="interior-solutions.html">Interior
+                                                Solutions</a></li>
+                                        <li><a href="home-repairs.html">Home Repairs</a>
+                                        </li>
+                                        <li><a href="home-maintenance.html">Home
+                                                Maintenance</a></li>
+                                        <li><a href="on-demand-services.html">On-Demand
+                                                Services</a></li>
+                                        <li><a href="painting-services.html">Painting
+                                                Services</a></li>
+                                        <li><a href="home-cleaning.html">Home
+                                                Cleaning</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rbt-search-scroll-vertical-wrapper rbt-scroll-vertical">
+                        <div class="inner">
+                            <div class="row row--0">
+                                <div class="col-lg-12">
+                                    <div class="border-0 p-0 text-left title-sm-fsize">
+                                        <h2 class="title"><span class="rbt-bold--text">Popular searches</span></h2>
+                                    </div>
+                                </div>
+                                html id="r8k2pm"
+                                <div class="rbt-search-list-wrapper rbt-tag-list rbt-tag-list-rounded-lg">
+
+                                    <!-- Buddy Society -->
+
+                                    <a href="facility-management.html">Facility Management</a>
+
+                                    <a href="society-management.html">Society Management</a>
+
+                                    <a href="security-management.html">Security Management</a>
+
+                                    <a href="housekeeping.html">Housekeeping</a>
+
+                                    <a href="society-maintenance.html">Society Maintenance</a>
+
+                                    <a href="amc-services.html">AMC Services</a>
+
+                                    <a href="parking-management.html">Parking Management</a>
+
+                                    <a href="gardening-landscaping.html">Gardening &amp; Landscaping</a>
+
+                                    <a href="support-response.html">24/7 Support &amp; Response</a>
+
+
+                                    <!-- Buddy Care -->
+
+                                    <a href="plumbing-services.html">Plumbing Services</a>
+
+                                    <a href="electrical-services.html">Electrical Services</a>
+
+                                    <a href="civil-works.html">Civil Works</a>
+
+                                    <a href="cleaning-services.html">Cleaning Services</a>
+
+                                    <a href="pest-control.html">Pest Control</a>
+
+                                    <a href="general-repairs.html">General Repairs</a>
+
+                                    <a href="preventive-maintenance.html">Preventive Maintenance</a>
+
+                                    <a href="corrective-maintenance.html">Corrective Maintenance</a>
+
+                                    <a href="property-maintenance.html">Property Maintenance</a>
+
+
+                                    <!-- Buddy Tech -->
+
+                                    <a href="cctv-solutions.html">CCTV Solutions</a>
+
+                                    <a href="boom-barrier.html">Boom Barrier</a>
+
+                                    <a href="access-control.html">Access Control</a>
+
+                                    <a href="smart-entry-systems.html">Smart Entry Systems</a>
+
+                                    <a href="security-solutions.html">Security Solutions</a>
+
+                                    <a href="technology-integration.html">Technology Integration</a>
+
+                                    <a href="smart-security.html">Smart Security</a>
+
+                                    <a href="surveillance-systems.html">Surveillance Systems</a>
+
+                                    <a href="technical-support.html">Technical Support</a>
+
+
+                                    <!-- Buddy Solar -->
+
+                                    <a href="residential-solar.html">Residential Solar</a>
+
+                                    <a href="society-solar.html">Society Solar</a>
+
+                                    <a href="commercial-solar.html">Commercial Solar</a>
+
+                                    <a href="solar-installation.html">Solar Installation</a>
+
+                                    <a href="solar-maintenance.html">Solar Maintenance</a>
+
+                                    <a href="solar-guard.html">Solar Guard</a>
+
+                                    <a href="solar-amc.html">Solar AMC</a>
+
+                                    <a href="energy-solutions.html">Energy Solutions</a>
+
+                                    <a href="solar-consultation.html">Solar Consultation</a>
+
+
+                                    <!-- Buddy Mobility -->
+
+                                    <a href="ev-charging.html">EV Charging</a>
+
+                                    <a href="ev-charger-installation.html">EV Charger Installation</a>
+
+                                    <a href="ev-site-survey.html">EV Site Survey</a>
+
+                                    <a href="ev-infrastructure.html">EV Infrastructure</a>
+
+                                    <a href="ev-amc.html">EV AMC</a>
+
+                                    <a href="charging-station-maintenance.html">Charging Station Maintenance</a>
+
+                                    <a href="residential-ev-solutions.html">Residential EV Solutions</a>
+
+                                    <a href="society-ev-solutions.html">Society EV Solutions</a>
+
+                                    <a href="commercial-ev-solutions.html">Commercial EV Solutions</a>
+
+
+                                    <!-- Buddy Home -->
+                                    <a href="furniture.html">Furniture Services</a>
+                                    <a href="interior-solutions.html">Interior Solutions</a>
+
+                                    <a href="home-repairs.html">Home Repairs</a>
+
+                                    <a href="home-maintenance.html">Home Maintenance</a>
+
+                                    <a href="on-demand-services.html">On-Demand Services</a>
+
+                                    <a href="painting-services.html">Painting Services</a>
+
+                                    <a href="home-cleaning.html">Home Cleaning</a>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="rbt-separator-mid ptb--24">
+                                <hr class="rbt-separator m-0">
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Search Dropdown  -->
+        </div>
+    </header>
+
+    <!-- Mobile Menu Section -->
+    <div class="popup-mobile-menu">
+        <div class="inner-wrapper">
+            <div class="mobile-menu-top">
+                <div class="inner-top">
+                    <div class="content">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="assets/images/logo/logo.png" alt="BUDDY Services Logo">
+                            </a>
+                        </div>
+
+                        <div class="rbt-btn-close">
+                            <button class="close-button rbt-round-btn">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        BUDDY Services provides integrated facility management, maintenance,
+                        cleaning, security, technology, solar and home solutions for
+                        residential, commercial and corporate spaces.
+                    </p>
+
+                    <div class="rbt-inner-search-field style-one rbt-search-field-rounded rbt-search-field-sm-width">
+                        <input type="text" placeholder="Search Services">
+                        <button class="rbt-round-btn search-btn rbt-text-color-gray-500" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rbt-tab rbt-round-shape-tab">
+
+                    <div class="tab-content" id="mobile-menuTabContent">
+                        <div class="tab-pane fade show active" id="rbt-tab-pane-mobilemenu-1" role="tabpanel"
+                            aria-labelledby="rbt-tab-mobilemenu-1" tabindex="0">
+
+                            <nav class="rbt-mainmenu-nav">
+                                <ul class="mainmenu">
+
+                                    <!-- Home -->
+                                    <li>
+                                        <a href="index.html">Home</a>
+                                    </li>
+
+                                    <!-- About -->
+                                    <li>
+                                        <a href="about.html">About Us</a>
+                                    </li>
+
+
+                                    <!-- Services -->
+                                    <li class="with-rbt-megamenu has-menu-child-item position-static">
+
+                                        <a href="all-services.html">
+                                            All Services
+                                            <i class="fa-regular fa-chevron-down"></i>
+                                        </a>
+
+                                        <!-- Start Mega Menu -->
+                                        <div class="rbt-megamenu rbt-width-fullscreen mega-has-bg-img mega-bg-one p-0">
+
+                                            <div class="rbt-megamenu-wrapper bg-transparent">
+                                                <div class="wrapper">
+
+                                                    <div class="row row--12 mt_dec--12">
+
+                                                        <!-- BUDDY SOCIETY -->
+
+                                                        <div class="col-xl-4">
+
+                                                            <div
+                                                                class="single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+
+                                                                <p class="rbt-short-title h5">BUDDY SOCIETY</p>
+
+                                                                <ul class="mega-menu-item">
+
+                                                                    <li>
+                                                                        <a href="facility-management.html">
+                                                                            Facility Management
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="security-services.html">
+                                                                            Security Services
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="housekeeping.html">
+                                                                            Housekeeping
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="society-management.html">
+                                                                            Society Management
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="amc-services.html">
+                                                                            AMC Services
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <!-- BUDDY CARE -->
+
+                                                        <div class="col-xl-4">
+
+                                                            <div
+                                                                class="single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+
+                                                                <p class="rbt-short-title h5">BUDDY CARE</p>
+
+                                                                <ul class="mega-menu-item">
+
+                                                                    <li>
+                                                                        <a href="plumbing.html">
+                                                                            Plumbing
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="electrical.html">
+                                                                            Electrical
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="civil-works.html">
+                                                                            Civil Works
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="cleaning.html">
+                                                                            Cleaning
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="pest-control.html">
+                                                                            Pest Control
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <!-- BUDDY TECH -->
+
+                                                        <div class="col-xl-4">
+
+                                                            <div
+                                                                class="single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+
+                                                                <p class="rbt-short-title h5">BUDDY TECH</p>
+
+                                                                <ul class="mega-menu-item">
+
+                                                                    <li>
+                                                                        <a href="cctv.html">
+                                                                            CCTV
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="boom-barrier.html">
+                                                                            Boom Barrier
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="access-control.html">
+                                                                            Access Control
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="smart-entry.html">
+                                                                            Smart Entry
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <!-- BUDDY SOLAR -->
+
+                                                        <div class="col-xl-4">
+
+                                                            <div
+                                                                class="single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+
+                                                                <p class="rbt-short-title h5">BUDDY SOLAR</p>
+
+                                                                <ul class="mega-menu-item">
+
+                                                                    <li>
+                                                                        <a href="residential-solar.html">
+                                                                            Residential Solar
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="society-solar.html">
+                                                                            Society Solar
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="commercial-solar.html">
+                                                                            Commercial Solar
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="solar-guard.html">
+                                                                            Solar Guard
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <!-- BUDDY MOBILITY -->
+
+                                                        <div class="col-xl-4">
+
+                                                            <div
+                                                                class="single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+
+                                                                <p class="rbt-short-title h5">BUDDY MOBILITY</p>
+
+                                                                <ul class="mega-menu-item">
+
+                                                                    <li>
+                                                                        <a href="ev-charging.html">
+                                                                            EV Charging
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="site-survey.html">
+                                                                            Site Survey
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="installation.html">
+                                                                            Installation
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="amc-services.html">
+                                                                            AMC Services
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <!-- BUDDY HOME -->
+
+                                                        <div class="col-xl-4">
+
+                                                            <div
+                                                                class="single-mega-item rbt-scroll-trigger fade_in animation-order-1 mt--16">
+
+                                                                <p class="rbt-short-title h5">BUDDY HOME</p>
+
+                                                                <ul class="mega-menu-item">
+                                                                    <li>
+                                                                        <a href="furniture.html">
+                                                                            Furniture Services
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="interior-solutions.html">
+                                                                            Interior Solutions
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="home-repairs.html">
+                                                                            Home Repairs
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="home-maintenance.html">
+                                                                            Home Maintenance
+                                                                        </a>
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a href="on-demand-services.html">
+                                                                            On-demand Services
+                                                                        </a>
+                                                                    </li>
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- End Mega Menu -->
+
+                                    </li>
+
+                                    <!-- Gallery -->
+                                    <li>
+                                        <a href="gallery.html">Gallery</a>
+                                    </li>
+
+                                    <!-- Contact -->
+                                    <li>
+                                        <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal">
+                                            Contact Us
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Bottom -->
+            <div class="mobile-menu-bottom">
+
+                <div class="social-share-wrapper">
+                    <span class="rbt-short-title d-block">Connect With Us</span>
+
+                    <ul class="rbt-social-icon-list mt--12">
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-brands fa-telegram"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <ul class="navbar-top-left rbt-information-list justify-content-center">
+
+                    <li>
+                        <a href="mailto:buddyservices360@gmail.com">
+                            <i class="fa-light fa-envelope"></i>
+                            <span>buddyservices360@gmail.com</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tel:+919096324843">
+                            <i class="fa-regular fa-phone"></i>
+                            +91 9096324843
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Breadcrumb -->
+    <div class="rbt-breadcrumb-two rbt-bg-color-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="rbt-breadcrumb-inner d-flex align-items-center justify-content-between">
+                        <ul class="rbt-breadcrumb-page-list justify-content-start mt--0">
+                            <li class="rbt-breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <div class="icon-right">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </li>
+                            <li class="rbt-breadcrumb-item">
+                                <a href="all-services.html">All Services</a>
+                            </li>
+                            <li>
+                                <div class="icon-right">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </li>
+                            <li class="rbt-breadcrumb-item active">
+                                <a href="#">Buddy Care</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <section class="buddy-service-page buddy-care">
+
+        <section class="buddy-hero">
+            <div class="buddy-container buddy-hero-grid">
+                <div class="buddy-hero-content">
+                    <span class="buddy-label">BUDDY CARE</span>
+                    <h1>Complete Property <span>Care & Maintenance</span></h1>
+                    <p>From everyday repairs to essential property maintenance, BUDDY CARE helps residential and
+                        commercial
+                        customers maintain clean, functional and comfortable spaces through coordinated maintenance
+                        services.</p>
+                    <div class="buddy-hero-actions">
+                        <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                            data-bs-target="#contactModal" id="contactModalBtn" data-bs-toggle="modal"
+                            data-bs-target="#contactModal" class="buddy-btn buddy-btn-primary">Request a Service <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#care-services" class="buddy-btn buddy-btn-outline">View Services</a>
+                    </div>
+                </div>
+                <div class="buddy-hero-image">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85"
+                        alt="Professional property cleaning and maintenance">
+                </div>
+            </div>
+        </section>
+
+        <section class="buddy-section buddy-section-white">
+            <div class="buddy-container buddy-about-grid">
+                <div class="buddy-about-content">
+                    <span class="buddy-label">Complete Property Care</span>
+                    <h2>Everyday Maintenance, <span>Made Simpler</span></h2>
+                    <p>Property maintenance requires timely attention and dependable service coordination. Our CARE
+                        services
+                        bring essential maintenance requirements together under one service offering.</p>
+                    <div class="buddy-feature-list">
+                        <div class="buddy-feature"><i class="fa-solid fa-check-circle"></i> Routine maintenance
+                            support
+                        </div>
+                        <div class="buddy-feature"><i class="fa-solid fa-check-circle"></i> Repair service
+                            coordination
+                        </div>
+                        <div class="buddy-feature"><i class="fa-solid fa-check-circle"></i> Cleaning and hygiene
+                            solutions
+                        </div>
+                        <div class="buddy-feature"><i class="fa-solid fa-check-circle"></i> Residential and
+                            commercial care
+                        </div>
+                    </div>
+                    <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal" data-bs-target="#contactModal"
+                        class="buddy-btn buddy-btn-primary">Talk to Our Team <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="buddy-about-image">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=85"
+                        alt="Property maintenance professional">
+                </div>
+            </div>
+        </section>
+
+        <section class="buddy-section buddy-section-light" id="care-services">
+            <div class="buddy-container">
+                <div class="buddy-section-heading">
+                    <span class="buddy-label">Our CARE Services</span>
+                    <h2>Professional <span>Care for Every Property</span></h2>
+                    <p>Practical maintenance and cleaning services designed around your property needs.</p>
+                </div>
+                <div class="buddy-services-grid">
+                    <article class="buddy-service-card">
+                        <div class="buddy-icon"><i class="fa-solid fa-faucet-drip"></i></div>
+                        <h3>Plumbing Services</h3>
+                        <p>Plumbing repair and maintenance support for common leaks, fittings and everyday
+                            water-system
+                            issues.</p>
+                        <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                            data-bs-target="#contactModal" class="buddy-card-link">Request Service <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="buddy-service-card">
+                        <div class="buddy-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>Electrical Services</h3>
+                        <p>Electrical repair and maintenance coordination for lighting, fittings and common
+                            electrical
+                            requirements.</p>
+                        <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                            data-bs-target="#contactModal" class="buddy-card-link">Request Service <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="buddy-service-card">
+                        <div class="buddy-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+                        <h3>Civil Work</h3>
+                        <p>Property repair and civil maintenance support for surfaces, fixtures and general upkeep.
+                        </p>
+                        <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                            data-bs-target="#contactModal" class="buddy-card-link">Request Service <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="buddy-service-card">
+                        <div class="buddy-icon"><i class="fa-solid fa-broom"></i></div>
+                        <h3>Cleaning Services</h3>
+                        <p>Cleaning solutions to help keep homes, workplaces and shared areas neat and hygienic.</p>
+                        <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                            data-bs-target="#contactModal" class="buddy-card-link">Request Service <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="buddy-service-card">
+                        <div class="buddy-icon"><i class="fa-solid fa-bug-slash"></i></div>
+                        <h3>Pest Control</h3>
+                        <p>Pest management service coordination to help maintain cleaner and more comfortable
+                            environments.
+                        </p>
+                        <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                            data-bs-target="#contactModal" class="buddy-card-link">Request Service <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="buddy-service-card">
+                        <div class="buddy-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <h3>General Repairs</h3>
+                        <p>Practical repair and maintenance assistance for common property upkeep requirements.</p>
+                        <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                            data-bs-target="#contactModal" class="buddy-card-link">Request Service <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="buddy-cta">
+            <div class="buddy-container">
+                <div class="buddy-cta-inner">
+                    <div>
+                        <h2>Your Property Deserves Professional Care</h2>
+                        <p>Contact BUDDY CARE to discuss your repair, cleaning and maintenance needs.</p>
+                    </div>
+                    <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal" data-bs-target="#contactModal"
+                        class="buddy-btn buddy-btn-primary">Book a Consultation <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="rbt-component-area rbt-catagories-scroll-area">
+        <div class="wrapper">
+            <br>
+            <div class="rbt-scroll-animation-container">
+                <div class="rbt-scroll-animation-wrapper rbt-no-overlay rbt-bg-color-primary rbt-scroll-sm-size">
+                    <div class="rbt-scroll-animation rbt-scroll-right-left">
+                        <div class="rbt-single-column-100">
+                            <div class="rbt-category-list">
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY
+                                    Society</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY Care</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY Tech</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY
+                                    Solar</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY
+                                    Mobility</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY Home</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY
+                                    Society</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY Care</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY Tech</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY
+                                    Solar</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY
+                                    Mobility</a>
+
+                                <a href="all-services.html"><span
+                                        class="rbt-catagory-icon rbt-offer-icon-circle"></span>
+                                    BUDDY Home</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <!-- Start Footer Area -->
+    <footer class="rbt-footer rbt-footer-style-one rbt-bg-color-gray-light">
+
+        <div class="rbt-footer-top rbt-section-gap2Top">
+
+            <div class="container">
+
+                <div class="row justify-content-between row--12 mt_dec--24 pb--40 pb_sm--24">
+
+                    <!-- Company Information -->
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--24 border-end rbt-border-color-border-2">
+
+                        <div class="footer-widget">
+
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="assets/images/logo/logo.png" alt="BUDDY Services Logo">
+                                </a>
+                            </div>
+
+
+                            <div class="rbt-quick-contact-info mt-3">
+
+                                <a class="contact-link has-lg-fsize" href="tel:+919096324843">
+                                    +91 9096324843
+                                </a>
+                            </div>
+
+
+
+                            <div class="rbt-quick-contact-info d-flex rbt-gap--4 align-items-center">
+
+                                <a class="contact-link" href="mailto:buddyservices360@gmail.com">
+                                    buddyservices360@gmail.com
+                                </a>
+                            </div>
+
+                            <div class="mt-3 rbt-footer-social-area justify-content-center justify-content-lg-start">
+
+
+
+                                <ul
+                                    class="social-icon social-icon-md rbt-social-default with-bg-primary justify-content-start">
+
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-brands fa-youtube"></i>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+
+
+
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-brands fa-telegram"></i>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                    <!-- Buddy Services -->
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt--24">
+
+                        <div class="footer-widget rbt-link-hover">
+
+                            <h3 class="ft-title">Buddy Services</h3>
+
+                            <ul class="ft-link">
+
+                                <li>
+                                    <a href="buddy-society.html">Buddy Society</a>
+                                </li>
+
+                                <li>
+                                    <a href="buddy-care.html">Buddy Care</a>
+                                </li>
+
+                                <li>
+                                    <a href="buddy-tech.html">Buddy Tech</a>
+                                </li>
+
+                                <li>
+                                    <a href="buddy-solar.html">Buddy Solar</a>
+                                </li>
+
+                                <li>
+                                    <a href="buddy-mobility.html">Buddy Mobility</a>
+                                </li>
+
+                                <li>
+                                    <a href="buddy-home.html">Buddy Home</a>
+                                </li>
+
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt--24">
+
+                        <div class="footer-widget rbt-link-hover">
+
+                            <h3 class="ft-title">Quick Links</h3>
+
+                            <ul class="ft-link">
+
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+
+                                <li>
+                                    <a href="about.html">About Us</a>
+                                </li>
+
+                                <li>
+                                    <a href="all-services.html">Services</a>
+                                </li>
+
+
+
+                                <li>
+                                    <a href="calculator.html" id="calculatorModalBtn">
+                                        Calculator
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="contact.html" id="contactModalBtn" data-bs-toggle="modal"
+                                        data-bs-target="#contactModal">
+                                        Contact Us
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="privacy-policy.html">Privacy Policy</a>
+                                </li>
+
+                                <li>
+                                    <a href="terms-and-conditions.html">Terms & Conditions</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <!-- Quick Links -->
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt--24">
+
+                        <div class="footer-widget rbt-link-hover">
+
+                            <h3 class="ft-title">Location</h3>
+
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.253973124234!2d73.7727602!3d18.5137283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2517f6ba91%3A0xcf42ab9bc88149c!2sShravnis%20Pest%20control%20%26%20cleaning%20services!5e1!3m2!1sen!2sin!4v1791220626513!5m2!1sen!2sin"
+                                width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="rbt-separator-mid">
+
+            <div class="container">
+
+                <hr class="rbt-separator m-0">
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- End Footer Area -->
+
+    <!-- Start Copyright Area  -->
+    <div class="copyright-area copyright-style-1">
+        <div class="container">
+            <div class="row row--12 align-items-center justify-content-between mt_dec--24">
+                <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12 mt--24">
+                    <p class="rbt-link-hover text-center text-center">Copyright <span class="copyright-year">2026</span>
+
+                        <a href="index.html" class="rbt-text-semi-bold rbt-text-color-heading">Buddy Services</a> All
+                        Right Reserved.
+
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- End Copyright Area  -->
+    <!-- Start Sign In Modal Area  -->
+    <div class="rbt-default-modal modal fade has-rbt-top-folder-shape" id="contactModal" tabindex="-1" role="dialog"
+        aria-modal="true" aria-labelledby="signinModalLabel" aria-hidden="true">
+        <div class="modal-dialog rbt-register-form-modal modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="rbt-folder-shape-right-portion">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="85" height="90" viewBox="0 0 85 90" fill="none">
+                        <path
+                            d="M0 0H11.1844C14.5695 0 17.7971 1.42971 20.0716 3.93671L82.1927 72.4059C83.9992 74.397 84.9999 76.9893 84.9999 79.6778C84.9999 85.6547 85.0001 90 85.0001 90H0V0Z"
+                            fill="white" />
+                    </svg>
+                </div>
+
+                <div class="modal-header">
+                    <button type="button" class="rbt-round-btn rbt-modal-dis-btn" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="rbt-top-folder-shape-wrapper">
+                    <div class="rbt-login-form rbt-bg-color-white rbt-content-trs-portion">
+                        <div class="rbt-login-form-inner">
+                            <div class="rbt-login-form-top">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/logo.png" alt="Ecommerce Logo Images">
+                                    </a>
+                                </div>
+                                <h3 class="rbt-title rbt-text-bold mb--16 h6" id="signinModalLabel">Contact Form
+                                </h3>
+
+                                <div class="rbt-tab rbt-round-shape-tab">
+
+
+                                    <form action="mailto:buddyservices360@gmail.com" method="post"
+                                        id="buddyContactForm">
+
+                                        <!-- Start tabs content -->
+                                        <div class="tab-content" id="registerFormTab1Content">
+
+                                            <div class="tab-pane fade show active" id="rbt-form-tab-pane-1"
+                                                role="tabpanel" aria-labelledby="rbt-form-tab-id-1" tabindex="0">
+
+                                                <div class="row">
+
+                                                    <!-- Your Name -->
+                                                    <div class="col-md-6">
+                                                        <div class="rbt-input-field-grp">
+
+                                                            <label class="rbt-field-label" for="modal_contact_name">
+                                                                Your Name<span class="rbt-text-color-danger">*</span>
+                                                            </label>
+
+                                                            <input class="rbt-input-field" placeholder="Your Name"
+                                                                type="text" id="modal_contact_name" name="name"
+                                                                required>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <!-- Phone Number -->
+                                                    <div class="col-md-6">
+                                                        <div class="rbt-input-field-grp">
+
+                                                            <label class="rbt-field-label" for="modal_contact_phone">
+                                                                Phone Number<span class="rbt-text-color-danger">*</span>
+                                                            </label>
+
+                                                            <input class="rbt-input-field" placeholder="Phone Number"
+                                                                type="tel" id="modal_contact_phone" name="phone"
+                                                                required>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <!-- Your Email -->
+                                                    <div class="col-md-6">
+                                                        <div class="rbt-input-field-grp mt--16">
+
+                                                            <label class="rbt-field-label" for="modal_contact_email">
+                                                                Your Email
+                                                            </label>
+
+                                                            <input class="rbt-input-field" placeholder="Email"
+                                                                type="email" id="modal_contact_email" name="email">
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <!-- Select Service -->
+                                                    <div class="col-md-6">
+                                                        <div class="rbt-input-field-grp mt--16">
+
+                                                            <label class="rbt-field-label" for="modal_contact_service">
+                                                                Select Service<span
+                                                                    class="rbt-text-color-danger">*</span>
+                                                            </label>
+
+                                                            <select class="rbt-input-field" id="modal_contact_service"
+                                                                name="service" required>
+
+                                                                <option value="">Select Service</option>
+
+                                                                <option value="Buddy Society">
+                                                                    Buddy Society
+                                                                </option>
+
+                                                                <option value="Buddy Care">
+                                                                    Buddy Care
+                                                                </option>
+
+                                                                <option value="Buddy Tech">
+                                                                    Buddy Tech
+                                                                </option>
+
+                                                                <option value="Buddy Solar">
+                                                                    Buddy Solar
+                                                                </option>
+
+                                                                <option value="Buddy Mobility">
+                                                                    Buddy Mobility
+                                                                </option>
+
+                                                                <option value="Buddy Home">
+                                                                    Buddy Home
+                                                                </option>
+
+                                                                <option value="Society Management">
+                                                                    Society Management
+                                                                </option>
+
+                                                                <option value="Facility Management">
+                                                                    Facility Management
+                                                                </option>
+
+                                                                <option value="Maintenance Services">
+                                                                    Maintenance Services
+                                                                </option>
+
+                                                                <option value="Pest Control">
+                                                                    Pest Control
+                                                                </option>
+
+                                                                <option value="Solar & Energy">
+                                                                    Solar & Energy
+                                                                </option>
+
+                                                                <option value="Interior Solutions">
+                                                                    Interior Solutions
+                                                                </option>
+
+                                                                <option value="Plumbing & Electrical">
+                                                                    Plumbing & Electrical
+                                                                </option>
+
+                                                                <option value="Cleaning & Housekeeping">
+                                                                    Cleaning & Housekeeping
+                                                                </option>
+
+                                                                <option value="Civil, PWD & SWD Works">
+                                                                    Civil, PWD & SWD Works
+                                                                </option>
+
+                                                                <option value="Society Parking Management">
+                                                                    Society Parking Management
+                                                                </option>
+
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+
+
+                                                    <!-- Your Message - Full Width -->
+                                                    <div class="col-12">
+                                                        <div class="rbt-input-field-grp mt--16">
+
+                                                            <label class="rbt-field-label" for="modal_contact_message">
+                                                                Your Message
+                                                            </label>
+
+                                                            <textarea class="rbt-input-field" id="modal_contact_message"
+                                                                name="message" placeholder="Write your message"
+                                                                rows="4"></textarea>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- End tabs content -->
+
+
+                                        <!-- Submit Button -->
+                                        <button type="submit" class="rbt-btn d-block w-100 mt--24 mb--16">
+                                            Send Enquiry
+                                        </button>
+
+
+                                        <!-- Privacy -->
+                                        <div class="rbt-check-group">
+
+                                            <input id="modal_login_checked1" type="checkbox" name="privacy" required>
+
+                                            <label for="modal_login_checked1">
+                                                I agree to be contacted by Buddy Services
+                                            </label>
+
+                                        </div>
+
+                                    </form>
+
+
+
+                                    <script>
+                                        document.getElementById("buddyContactForm").addEventListener("submit", function (e) {
+
+                                            e.preventDefault();
+
+                                            var form = this;
+                                            var button = form.querySelector('button[type="submit"]');
+
+                                            button.disabled = true;
+                                            button.innerHTML = "Sending...";
+
+                                            var formData = new FormData(form);
+
+                                            fetch("contact-form.html", {
+                                                method: "POST",
+                                                body: formData
+                                            })
+                                                .then(function (response) {
+                                                    return response.text();
+                                                })
+                                                .then(function (result) {
+
+                                                    result = result.trim();
+
+                                                    if (result === "success") {
+
+                                                        alert("Thank you! Your enquiry has been submitted successfully.");
+
+                                                        window.location.href = "index.html";
+
+                                                    } else if (result === "required") {
+
+                                                        alert("Please fill all required fields.");
+
+                                                        button.disabled = false;
+                                                        button.innerHTML = "Send Enquiry";
+
+                                                    } else if (result === "mail_error") {
+
+                                                        alert("Your form details were received, but the email could not be sent. Please check your hosting email settings.");
+
+                                                        button.disabled = false;
+                                                        button.innerHTML = "Send Enquiry";
+
+                                                    } else {
+
+                                                        alert("Server response: " + result);
+
+                                                        button.disabled = false;
+                                                        button.innerHTML = "Send Enquiry";
+                                                    }
+
+                                                })
+                                                .catch(function (error) {
+
+                                                    console.log(error);
+
+                                                    alert("Unable to connect to the server. Please try again.");
+
+                                                    button.disabled = false;
+                                                    button.innerHTML = "Send Enquiry";
+
+                                                });
+
+                                        });
+                                    </script>
+
+
+
+
+
+
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sign In Modal Area  -->
+    <!-- Start Sign In Modal Area  -->
+    <div class="rbt-default-modal modal fade has-rbt-top-folder-shape" id="signinModal" tabindex="-1" role="dialog"
+        aria-modal="true" aria-labelledby="signinModalLabel" aria-hidden="true">
+        <div class="modal-dialog rbt-register-form-modal modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="rbt-folder-shape-right-portion">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="85" height="90" viewBox="0 0 85 90" fill="none">
+                        <path
+                            d="M0 0H11.1844C14.5695 0 17.7971 1.42971 20.0716 3.93671L82.1927 72.4059C83.9992 74.397 84.9999 76.9893 84.9999 79.6778C84.9999 85.6547 85.0001 90 85.0001 90H0V0Z"
+                            fill="white" />
+                    </svg>
+                </div>
+
+                <div class="modal-header">
+                    <button type="button" class="rbt-round-btn rbt-modal-dis-btn" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="rbt-top-folder-shape-wrapper">
+                    <div class="rbt-login-form rbt-bg-color-white rbt-content-trs-portion">
+                        <div class="rbt-login-form-inner">
+                            <div class="rbt-login-form-top">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/logo.png" alt="Ecommerce Logo Images">
+                                    </a>
+                                </div>
+                                <h3 class="rbt-title rbt-text-bold mb--16 h6" id="signinModalLabel">Sign In To Proceed
+                                </h3>
+
+                                <div class="rbt-tab rbt-round-shape-tab">
+
+                                    <!-- Start tabs -->
+                                    <ul class="nav nav-tabs" id="registerFormTab1" role="tablist">
+
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="rbt-form-tab-id-1" data-bs-toggle="tab"
+                                                data-bs-target="#rbt-form-tab-pane-1" type="button" role="tab"
+                                                aria-controls="rbt-form-tab-pane-1" aria-selected="true">
+
+                                                <i class="fa-sharp fa-regular fa-phone"></i>
+                                                Phone Number
+
+                                            </button>
+                                        </li>
+
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="rbt-form-tab-id-2" data-bs-toggle="tab"
+                                                data-bs-target="#rbt-form-tab-pane-2" type="button" role="tab"
+                                                aria-controls="rbt-form-tab-pane-2" aria-selected="false">
+
+                                                <i class="fa-sharp fa-regular fa-envelope"></i>
+                                                Email
+
+                                            </button>
+                                        </li>
+
+                                    </ul>
+                                    <!-- End tabs -->
+
+                                    <form
+                                        action="https://docs.google.com/forms/d/e/1FAIpQLSfotFI_G0DhdGjDCnjMCBOztBXGsGWEg9vsxmY2MpWAlBi_Aw/viewform?usp=publish-editor"
+                                        method="get" target="_blank">
+
+                                        <!-- Start tabs content -->
+                                        <div class="tab-content" id="registerFormTab1Content">
+
+                                            <div class="tab-pane fade show active" id="rbt-form-tab-pane-1"
+                                                role="tabpanel" aria-labelledby="rbt-form-tab-id-1" tabindex="0">
+
+                                                <div class="rbt-input-field-grp">
+                                                    <label class="rbt-field-label" for="modal_signin_number">
+                                                        Your Number<span class="rbt-text-color-danger">*</span>
+                                                    </label>
+
+                                                    <input class="rbt-input-field" placeholder="Number" type="text"
+                                                        id="modal_signin_number">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane fade" id="rbt-form-tab-pane-2" role="tabpanel"
+                                                aria-labelledby="rbt-form-tab-id-2" tabindex="0">
+
+                                                <div class="rbt-input-field-grp">
+                                                    <label class="rbt-field-label" for="modal_signin_email">
+                                                        Your Email<span class="rbt-text-color-danger">*</span>
+                                                    </label>
+
+                                                    <input class="rbt-input-field" placeholder="Email" type="email"
+                                                        id="modal_signin_email">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- End tabs content -->
+
+                                        <button type="submit" class="rbt-btn d-block w-100 mt--24 mb--16">
+                                            Continue
+                                        </button>
+
+                                        <div class="rbt-check-group">
+                                            <input id="modal_login_checked1" type="checkbox" name="login">
+                                            <label for="modal_login_checked1">Stay Logged In</label>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+
+
+                                <!-- Separator -->
+                                <div class="d-flex align-items-center justify-content-center mb--24 mt--24">
+                                    <hr class="rbt-separator rbt-bg-color-gray-light mb--0">
+                                    <span class="pl--8 pr--8 b4 rbt-text-medium">OR</span>
+                                    <hr class="rbt-separator rbt-bg-color-gray-light mb--0">
+                                </div>
+
+
+                                <!-- Start social login button -->
+
+                                <a href="https://www.facebook.com/" target="_blank"
+                                    class="rbt-btn rbt-btn-border rbt-social-login-btn d-block w-100 mb--16 rbt-social-login-btn">
+
+                                    <img class="icon" src="assets/images/icons/fb-icon.webp" alt="Facebook Icon">
+                                    Continue with Facebook
+
+                                </a>
+
+                                <a href="https://accounts.google.com/" target="_blank"
+                                    class="rbt-btn rbt-btn-border rbt-social-login-btn d-block w-100 rbt-social-login-btn">
+
+                                    <img class="icon" src="assets/images/icons/google-icon.webp" alt="Google Icon">
+                                    Continue with Google
+
+                                </a>
+
+                                <!-- End social login button -->
+
+
+
+                                <div class="rbt-login-system-switch rbt-link-hover">
+                                    Don't have an account?
+                                    <button class="rbt-switch-btn" data-bs-toggle="modal" data-bs-target="#signupModal"
+                                        data-bs-dismiss="modal" aria-label="Close"><span>Create an
+                                            account</span></button>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sign In Modal Area  -->
+    <!-- Start Sign In Modal Area  -->
+    <div class="rbt-default-modal has-rbt-top-folder-shape modal fade" id="signupModal" tabindex="-1" role="dialog"
+        aria-modal="true" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog rbt-register-form-modal modal-dialog-centered">
+            <div class="modal-content">
+
+
+                <div class="rbt-folder-shape-right-portion">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="85" height="90" viewBox="0 0 85 90" fill="none">
+                        <path
+                            d="M0 0H11.1844C14.5695 0 17.7971 1.42971 20.0716 3.93671L82.1927 72.4059C83.9992 74.397 84.9999 76.9893 84.9999 79.6778C84.9999 85.6547 85.0001 90 85.0001 90H0V0Z"
+                            fill="white" />
+                    </svg>
+                </div>
+
+
+                <div class="modal-header">
+                    <button type="button" class="rbt-round-btn rbt-modal-dis-btn" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="rbt-top-folder-shape-wrapper">
+                    <div class="rbt-login-form rbt-bg-color-white rbt-content-trs-portion">
+                        <div class="rbt-login-form-inner">
+                            <div class="rbt-login-form-top">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/logo.png" alt="Ecommerce Logo Images">
+                                    </a>
+                                </div>
+                                <h3 class="rbt-title rbt-text-bold mb--16 h6" id="signupModalLabel">Create an Account
+                                </h3>
+                                <p class="description">Buddy Services for you:</p>
+                                <ul class="rbt-signup-radio-list">
+                                    <li class="rbt-check-grp ml--0">
+                                        <input id="modal-rbt-signup-radio-1" type="radio" name="modal-rbt-signup-radio">
+                                        <label for="modal-rbt-signup-radio-1">
+                                            <span class="rbt-lable-text">Home</span>
+                                        </label>
+                                    </li>
+                                    <li class="rbt-check-grp ml--0">
+                                        <input id="modal-rbt-signup-radio-2" type="radio" name="modal-rbt-signup-radio">
+                                        <label for="modal-rbt-signup-radio-2">
+                                            <span class="rbt-lable-text">Office</span>
+                                        </label>
+                                    </li>
+                                    <li class="rbt-check-grp ml--0">
+                                        <input id="modal-rbt-signup-radio-3" type="radio" name="modal-rbt-signup-radio">
+                                        <label for="modal-rbt-signup-radio-3">
+                                            <span class="rbt-lable-text">Business</span>
+                                        </label>
+                                    </li>
+                                    <li class="rbt-check-grp ml--0">
+                                        <input id="modal-rbt-signup-radio-4" type="radio" name="modal-rbt-signup-radio">
+                                        <label for="modal-rbt-signup-radio-4">
+                                            <span class="rbt-lable-text">Others</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <div class="rbt-tab rbt-round-shape-tab">
+
+                                    <!-- Start tabs -->
+                                    <ul class="nav nav-tabs" id="modal_signinTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="rbt-form-tab-id-3" data-bs-toggle="tab"
+                                                data-bs-target="#rbt-form-tab-pane-3" type="button" role="tab"
+                                                aria-controls="rbt-form-tab-pane-3" aria-selected="true">
+                                                <i class="fa-sharp fa-regular fa-phone"></i>
+                                                Phone Number
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="rbt-form-tab-id-4" data-bs-toggle="tab"
+                                                data-bs-target="#rbt-form-tab-pane-4" type="button" role="tab"
+                                                aria-controls="rbt-form-tab-pane-4" aria-selected="false">
+                                                <i class="fa-sharp fa-regular fa-envelope"></i>
+                                                Email
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <!-- End tabs -->
+
+                                    <!-- Start tabs content -->
+
+                                    <form
+                                        action="https://docs.google.com/forms/d/e/1FAIpQLSfotFI_G0DhdGjDCnjMCBOztBXGsGWEg9vsxmY2MpWAlBi_Aw/viewform?usp=publish-editor"
+                                        method="get" target="_blank">
+
+                                        <div class="tab-content" id="modal_signinTabContent">
+
+                                            <div class="tab-pane fade show active" id="rbt-form-tab-pane-3"
+                                                role="tabpanel" aria-labelledby="rbt-form-tab-id-3" tabindex="0">
+
+                                                <div class="rbt-input-field-grp">
+
+                                                    <label class="rbt-field-label" for="modal_register_number">
+                                                        Your Number<span class="rbt-text-color-danger">*</span>
+                                                    </label>
+
+                                                    <input class="rbt-input-field" placeholder="Number" type="text"
+                                                        id="modal_register_number">
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane fade" id="rbt-form-tab-pane-4" role="tabpanel"
+                                                aria-labelledby="rbt-form-tab-id-4" tabindex="0">
+
+                                                <div class="rbt-input-field-grp">
+
+                                                    <label class="rbt-field-label" for="modal_register_email">
+                                                        Your Email<span class="rbt-text-color-danger">*</span>
+                                                    </label>
+
+                                                    <input class="rbt-input-field" placeholder="Email" type="email"
+                                                        id="modal_register_email">
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <button type="submit" class="rbt-btn d-block w-100 mt--24 mb--16">
+                                            Continue
+                                        </button>
+
+                                        <div class="rbt-check-group">
+
+                                            <input id="modal_signup_login_checked2" type="checkbox" name="login">
+
+                                            <label for="modal_signup_login_checked2">
+                                                Stay Logged In
+                                            </label>
+
+                                        </div>
+
+                                    </form>
+
+                                    <!-- End tabs content -->
+
+
+
+                                </div>
+
+                                <!-- Separator -->
+                                <div class="d-flex align-items-center justify-content-center mb--24 mt--24">
+                                    <hr class="rbt-separator rbt-bg-color-gray-light mb--0">
+                                    <span class="pl--8 pr--8 b4 rbt-text-medium">OR</span>
+                                    <hr class="rbt-separator rbt-bg-color-gray-light mb--0">
+                                </div>
+
+
+                                <!-- Start social login button -->
+
+                                <a href="https://www.facebook.com/" target="_blank"
+                                    class="rbt-btn rbt-btn-border rbt-social-login-btn d-block w-100 mb--16 rbt-social-login-btn">
+
+                                    <img class="icon" src="assets/images/icons/fb-icon.webp" alt="Facebook Icon">
+
+                                    Continue with Facebook
+
+                                </a>
+
+                                <a href="https://www.google.com/" target="_blank"
+                                    class="rbt-btn rbt-btn-border rbt-social-login-btn d-block w-100 rbt-social-login-btn">
+
+                                    <img class="icon" src="assets/images/icons/google-icon.webp" alt="Google Icon">
+
+                                    Continue with Google
+
+                                </a>
+
+                                <!-- End social login button -->
+
+
+
+                                <div class="rbt-login-system-switch rbt-link-hover">
+                                    Already a customer?
+                                    <button class="rbt-switch-btn" data-bs-toggle="modal" data-bs-target="#signinModal"
+                                        data-bs-dismiss="modal" aria-label="Close"><span>Sign In</span></button>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sign In Modal Area  -->
+
+
+    <!-- End Footer aera -->
+
+    <div class="rbt-progress-parent">
+        <svg class="rbt-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <div class="fixed-buttons-container mb-5">
+        <!-- Call Button -->
+        <a class="floating-whatsapp-btn" href="tel:+919096324843">
+            <img src="assets/images/icons/call.png" width="50">
+        </a>
+
+        <!-- WhatsApp Button -->
+        <div class="floating-whatsapp-btn ">
+            <a href="https://wa.me/919096324843?text=Enquiry%20from%20Buddy%20Services%20Website%3A%20I%20am%20Interested."
+                target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/icons/whatsapp.png" width="50">
+            </a>
+        </div>
+    </div>
+
+
+
+    <a class="close_side_menu catagories-close_side_menu" href="javascript:void(0);"></a>
+    <a href="javascript:void(0);" class="common-close_search_dropdown"></a>
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/vendor/modernizr.min.js"></script>
+    <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/swiper.js"></script>
+    <script src="assets/js/vendor/jquery-appear.js"></script>
+    <script src="assets/js/vendor/fancybox.min.js"></script>
+    <script src="assets/js/vendor/animation.js"></script>
+    <script src="assets/js/vendor/text-type.js"></script>
+    <script src="assets/js/vendor/odometer.js"></script>
+    <script src="assets/js/vendor/backtotop.js"></script>
+    <script src="assets/js/vendor/jquery-ui.js"></script>
+    <script src="assets/js/vendor/bootstrap-select.min.js"></script>
+    <script src="assets/js/vendor/countdown.js"></script>
+    <script src="assets/js/vendor/progressbar.min.js"></script>
+    <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="assets/js/vendor/imageloaded.js"></script>
+    <script src="assets/js/vendor/jquery.waypoints.min.js"></script>
+    <script src="assets/js/plugins/color-swatches.js"></script>
+    <script src="assets/js/vendor/bootstrap-datepicker.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.min.js"></script>
+    <script type="module"
+        src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+        integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg=="
+        data-cf-beacon='{"version":"2024.11.0","token":"4a64ee10db7a4427ba649e901229556e","r":1,"spa":2}'
+        crossorigin="anonymous"></script>
+</body>
+
+
+
+<!-- Mirrored from html.getunimart.com/home-electronics.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Sep 2026 01:04:20 GMT -->
+
+</html>
