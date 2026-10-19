@@ -47425,87 +47425,6 @@ only screen and (min-width:768px) and (max-width:991px) {
     font-size: calc(16px + 4 * (100vw - 320px)/ 960)
 }
 
-.rbt-preloader {
-    background: var(--color-white);
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    z-index: 99999;
-    top: 0;
-    left: 0
-}
-
-.rbt-preloader-inner {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column
-}
-
-.rbt-preloader-inner img,
-.rbt-preloader-inner svg {
-    max-width: 300px
-}
-
-.preloader-msg {
-    animation: msg .3s 13.7s linear forwards;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    left: 0
-}
-
-.preloader-msg--last {
-    animation-direction: reverse;
-    animation-delay: 14s;
-    visibility: hidden
-}
-
-.rbt-preloader-cart {
-    display: block;
-    margin: 0 auto 1.5em auto;
-    width: 60px;
-    height: 60px
-}
-
-.rbt-preloader-cart-lines,
-.rbt-preloader-cart-top,
-.rbt-preloader-cart-wheel-stroke,
-.rbt-preloader-cart-wheel1,
-.rbt-preloader-cart-wheel2 {
-    animation: cartLines 2s ease-in-out infinite
-}
-
-.rbt-preloader-cart-lines {
-    stroke: var(--primary)
-}
-
-.rbt-preloader-cart-top {
-    animation-name: cartTop
-}
-
-.rbt-preloader-cart-wheel1 {
-    animation-name: cartWheel1;
-    transform: rotate(-.25turn);
-    transform-origin: 43px 111px
-}
-
-.rbt-preloader-cart-wheel2 {
-    animation-name: cartWheel2;
-    transform: rotate(.25turn);
-    transform-origin: 102px 111px
-}
-
-.rbt-preloader-cart-wheel-stroke {
-    animation-name: cartWheelStroke
-}
-
-.rbt-preloader-cart-track {
-    stroke: hsla(var(--hue), 10%, 10%, .1);
-    transition: stroke var(--trans-dur)
-}
 
 @media (prefers-color-scheme:dark) {
     :root {
@@ -47513,9 +47432,7 @@ only screen and (min-width:768px) and (max-width:991px) {
         --fg: hsl(var(--hue), 10%, 90%)
     }
 
-    .rbt-preloader-cart-track {
-        stroke: hsla(var(--hue), 10%, 90%, .1)
-    }
+
 }
 
 @keyframes msg {
